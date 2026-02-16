@@ -3,6 +3,7 @@ const cors = require("cors");
 const { testConnection } = require("./config/database");
 const authRoutes = require("./routes/authRoutes");
 const articleRoutes = require("./routes/articleRoutes");
+const uploadRoutes = require("./routes/uploadRoutes");
 
 const app = express();
 
@@ -29,6 +30,9 @@ app.use("/api/auth", authRoutes);
 
 // 文章路由
 app.use("/api/posts", articleRoutes);
+
+// 上传路由
+app.use("/api/upload", uploadRoutes);
 
 // 测试路由
 app.get("/api/test", (req, res) => {
